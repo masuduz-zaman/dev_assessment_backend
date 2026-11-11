@@ -31,7 +31,6 @@ export const toPublicUser = (user: User): PublicUser => ({
   avatarUrl: user.avatarUrl,
 });
 
-/** Blocks sign-in for suspended users and for companies that the Super Admin has not approved yet. */
 async function assertCanSignIn(user: User) {
   if (user.status !== "ACTIVE")
     throw ApiError.forbidden("Your account is not active. Contact support");
@@ -108,10 +107,7 @@ export const authService = {
     return issueSession(user);
   },
 
-  /**
-   * Google social login. The browser obtains an ID token from Google Identity Services (Google Cloud OAuth client);
-   * the token is verified server-side against GOOGLE_CLIENT_ID before any account is read or created.
-   */
+
   async loginWithGoogle(input: GoogleLoginInput) {
     if (!googleClient || !env.GOOGLE_CLIENT_ID)
       throw ApiError.unavailable(
