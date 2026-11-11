@@ -39,7 +39,6 @@ export const attemptsService = {
         );
     }
 
-    // Resume an attempt that is still running instead of burning another attempt.
     const running = await prisma.assessmentAttempt.findFirst({
       where: { assessmentId, candidateId, status: "IN_PROGRESS" },
       orderBy: { startedAt: "desc" },
