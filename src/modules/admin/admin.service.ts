@@ -168,7 +168,6 @@ export const adminService = {
 
   auditLogs: (limit = 50) => auditService.recent(limit),
 
-  /** Aggregated numbers for the admin reports page. */
   async reports() {
     const months = lastMonths(6);
     const since = new Date();
