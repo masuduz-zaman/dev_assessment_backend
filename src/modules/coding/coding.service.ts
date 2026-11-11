@@ -14,10 +14,7 @@ export interface ExecutionOutput {
 
 export const isCodingConfigured = () => Boolean(env.JUDGE0_BASE_URL);
 
-/**
- * Security boundary: code is sent to an isolated Judge0-compatible service and is never
- * eval'd or executed inside this API process.
- */
+
 export const codingService = {
   async execute(input: ExecuteCodeInput): Promise<ExecutionOutput> {
     if (!env.JUDGE0_BASE_URL) {

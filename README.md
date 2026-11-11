@@ -28,9 +28,9 @@ Flow of a request: **route** (auth + role/permission + Zod validation) -> **cont
 | ----------------------------------- | ------------------------------------------- |
 | `npm run dev`                       | watch mode API                              |
 | `npm run build` / `npm start`       | compile and run                             |
-| `npm run db:migrate -- --name init` | create/apply migrations (multi-file schema) |
-| `npm run db:deploy`                 | apply migrations in production              |
-| `npm run db:seed`                   | demo data                                   |
+| `npx prisma migrate dev -- --name init` | create/apply migrations (multi-file schema) |
+| `npx prisma generate`                 | apply migrations in production              |
+data                                   |
 | `npm run postman`                   | regenerate the Postman collection           |
 
 ## Response format
