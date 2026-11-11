@@ -1,0 +1,14 @@
+model CompanyMember {
+  id          String     @id @default(cuid())
+  companyId   String
+  userId      String
+  memberRole  MemberRole @default(ASSESSMENT_CREATOR)
+  permissions String[]   @default([])
+  active      Boolean    @default(true)
+  createdAt   DateTime   @default(now())
+
+  company Company @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([companyId, userId])
+}

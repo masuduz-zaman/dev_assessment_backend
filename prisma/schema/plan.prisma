@@ -1,0 +1,16 @@
+// Purchasable plans. Prices live in the database so a client can never choose its own amount.
+model Plan {
+  id          String   @id @default(cuid())
+  code        String   @unique
+  name        String
+  description String?
+  amount      Int // minor units (poisha / cents)
+  currency    String   @default("BDT")
+  features    String[] @default([])
+  active      Boolean  @default(true)
+  sortOrder   Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  payments Payment[]
+}

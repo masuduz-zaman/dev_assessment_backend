@@ -1,0 +1,16 @@
+model AssessmentAttempt {
+  id           String        @id @default(cuid())
+  assessmentId String
+  candidateId  String
+  status       AttemptStatus @default(IN_PROGRESS)
+  startedAt    DateTime      @default(now())
+  deadlineAt   DateTime
+  submittedAt  DateTime?
+
+  assessment  Assessment        @relation(fields: [assessmentId], references: [id])
+  candidate   User              @relation(fields: [candidateId], references: [id])
+  submissions Submission[]
+  result      AssessmentResult?
+
+  @@index([candidateId, assessmentId])
+}

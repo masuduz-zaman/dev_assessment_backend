@@ -1,0 +1,19 @@
+model Submission {
+  id                String    @id @default(cuid())
+  attemptId         String
+  questionId        String
+  answerText        String?
+  selectedOptionIds String[]  @default([])
+  code              String?
+  languageId        Int?
+  executionResult   Json?
+  marksAwarded      Float     @default(0)
+  feedback          String?
+  evaluatedAt       DateTime?
+  evaluatorId       String?
+
+  attempt  AssessmentAttempt @relation(fields: [attemptId], references: [id], onDelete: Cascade)
+  question Question          @relation(fields: [questionId], references: [id])
+
+  @@unique([attemptId, questionId])
+}

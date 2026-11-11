@@ -1,0 +1,85 @@
+enum Role {
+  SUPER_ADMIN
+  COMPANY
+  CANDIDATE
+}
+
+enum UserStatus {
+  ACTIVE
+  PENDING
+  SUSPENDED
+}
+
+enum CompanyStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  SUSPENDED
+}
+
+enum MemberRole {
+  OWNER
+  ADMIN
+  ASSESSMENT_CREATOR
+  EVALUATOR
+  RECRUITER
+}
+
+enum AssessmentVisibility {
+  PUBLIC
+  PRIVATE
+}
+
+enum AssessmentStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
+enum QuestionType {
+  MCQ
+  CODING
+  WRITTEN
+}
+
+enum AttemptStatus {
+  IN_PROGRESS
+  SUBMITTED
+  EXPIRED
+  EVALUATED
+}
+
+enum ResultStatus {
+  PENDING
+  PASSED
+  FAILED
+}
+
+enum JobStatus {
+  DRAFT
+  OPEN
+  CLOSED
+}
+
+enum ApplicationStatus {
+  APPLIED
+  REVIEWING
+  SHORTLISTED
+  REJECTED
+  HIRED
+}
+
+enum OfferStatus {
+  SENT
+  ACCEPTED
+  REJECTED
+  WITHDRAWN
+}
+
+enum PaymentStatus {
+  PENDING
+  PAID
+  FAILED
+  CANCELLED
+  REFUNDED
+}

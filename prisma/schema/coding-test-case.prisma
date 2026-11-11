@@ -1,0 +1,10 @@
+model CodingTestCase {
+  id             String  @id @default(cuid())
+  codingConfigId String
+  input          String
+  expectedOutput String
+  isHidden       Boolean @default(true)
+  weight         Float   @default(1)
+
+  config CodingConfig @relation(fields: [codingConfigId], references: [id], onDelete: Cascade)
+}

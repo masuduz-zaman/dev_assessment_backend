@@ -1,0 +1,13 @@
+model JobPosition {
+  id             String    @id @default(cuid())
+  companyId      String
+  title          String
+  description    String
+  location       String?
+  employmentType String?
+  status         JobStatus @default(DRAFT)
+  createdAt      DateTime  @default(now())
+
+  company      Company          @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  applications JobApplication[]
+}

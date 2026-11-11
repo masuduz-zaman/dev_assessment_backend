@@ -1,0 +1,11 @@
+model CodingConfig {
+  id               String  @id @default(cuid())
+  questionId       String  @unique
+  languageIds      Int[]
+  starterCode      String?
+  timeLimitSeconds Int     @default(5)
+  memoryLimitKb    Int     @default(128000)
+
+  question  Question         @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  testCases CodingTestCase[]
+}

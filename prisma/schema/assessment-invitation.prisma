@@ -1,0 +1,16 @@
+model AssessmentInvitation {
+  id           String    @id @default(cuid())
+  assessmentId String
+  companyId    String?
+  candidateId  String
+  token        String    @unique
+  acceptedAt   DateTime?
+  expiresAt    DateTime?
+  createdAt    DateTime  @default(now())
+
+  assessment Assessment @relation(fields: [assessmentId], references: [id], onDelete: Cascade)
+  company    Company?   @relation(fields: [companyId], references: [id], onDelete: SetNull)
+  candidate  User       @relation(fields: [candidateId], references: [id], onDelete: Cascade)
+
+  @@unique([assessmentId, candidateId])
+}

@@ -1,0 +1,17 @@
+model CandidateRanking {
+  id                String   @id @default(cuid())
+  candidateId       String
+  companyId         String   @default("PUBLIC") // "PUBLIC" scope or a company id
+  totalAttempts     Int      @default(0)
+  completedAttempts Int      @default(0)
+  passedCount       Int      @default(0)
+  obtainedMarks     Float    @default(0)
+  possibleMarks     Float    @default(0)
+  percentage        Float    @default(0)
+  updatedAt         DateTime @updatedAt
+
+  candidate User @relation(fields: [candidateId], references: [id], onDelete: Cascade)
+
+  @@unique([candidateId, companyId])
+  @@index([companyId, percentage])
+}

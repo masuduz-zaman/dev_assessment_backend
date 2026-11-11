@@ -1,0 +1,22 @@
+model Payment {
+  id                    String        @id @default(cuid())
+  userId                String
+  companyId             String?
+  planId                String?
+  amount                Int // minor units
+  currency              String        @default("BDT")
+  provider              String
+  providerSessionId     String? // Stripe session id / SSLCommerz session key
+  providerTransactionId String?       @unique // set only after the provider confirms payment
+  status                PaymentStatus @default(PENDING)
+  purpose               String
+  metadata              Json?
+  createdAt             DateTime      @default(now())
+  updatedAt             DateTime      @updatedAt
+
+  user    User     @relation(fields: [userId], references: [id])
+  company Company? @relation(fields: [companyId], references: [id])
+  plan    Plan?    @relation(fields: [planId], references: [id])
+
+  @@index([userId, createdAt])
+}

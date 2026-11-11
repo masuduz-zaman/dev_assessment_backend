@@ -1,0 +1,15 @@
+model EmploymentOffer {
+  id          String      @id @default(cuid())
+  companyId   String
+  senderId    String
+  candidateId String
+  jobTitle    String
+  message     String?
+  status      OfferStatus @default(SENT)
+  respondedAt DateTime?
+  createdAt   DateTime    @default(now())
+
+  company   Company @relation(fields: [companyId], references: [id])
+  sender    User    @relation("OfferSender", fields: [senderId], references: [id])
+  candidate User    @relation("OfferReceiver", fields: [candidateId], references: [id])
+}

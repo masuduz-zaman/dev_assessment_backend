@@ -1,0 +1,15 @@
+model AssessmentResult {
+  id            String       @id @default(cuid())
+  attemptId     String       @unique
+  assessmentId  String
+  candidateId   String
+  obtainedMarks Float        @default(0)
+  totalMarks    Float
+  percentage    Float        @default(0)
+  status        ResultStatus @default(PENDING)
+  evaluatedAt   DateTime?
+
+  attempt    AssessmentAttempt @relation(fields: [attemptId], references: [id], onDelete: Cascade)
+  assessment Assessment        @relation(fields: [assessmentId], references: [id])
+  candidate  User              @relation(fields: [candidateId], references: [id])
+}
