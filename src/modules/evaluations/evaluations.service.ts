@@ -9,7 +9,7 @@ const companyFilter = (actor: Actor) =>
   isAdmin(actor) ? {} : { companyId: actor.companyId ?? "__none__" };
 
 export const evaluationsService = {
-  /** Written answers (and coding answers that could not be auto-run) waiting for a human grade. */
+
   pending(actor: Actor) {
     return prisma.submission.findMany({
       where: {
