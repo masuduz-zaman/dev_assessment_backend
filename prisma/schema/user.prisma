@@ -1,0 +1,27 @@
+model User {
+  id            String     @id @default(cuid())
+  name          String
+  email         String     @unique
+  passwordHash  String? // null for accounts created through Google sign-in
+  googleId      String?    @unique
+  emailVerified Boolean    @default(false)
+  role          Role       @default(CANDIDATE)
+  status        UserStatus @default(ACTIVE)
+  avatarUrl     String?
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+
+  company               Company?
+  candidate             CandidateProfile?
+  memberships           CompanyMember[]
+  createdAssessments    Assessment[]
+  assessmentInvitations AssessmentInvitation[]
+  assessmentResults     AssessmentResult[]
+  attempts              AssessmentAttempt[]
+  rankings              CandidateRanking[]
+  applications          JobApplication[]
+  sentOffers            EmploymentOffer[]      @relation("OfferSender")
+  receivedOffers        EmploymentOffer[]      @relation("OfferReceiver")
+  payments              Payment[]
+  notifications         Notification[]
+}
