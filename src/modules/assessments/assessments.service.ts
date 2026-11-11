@@ -92,7 +92,6 @@ const candidateInclude = {
   },
 };
 
-/** An assessment the actor may edit: their own company's, or any for super admins. */
 async function findManageable(actor: Actor, id: string) {
   const assessment = await prisma.assessment.findFirst({
     where: {
