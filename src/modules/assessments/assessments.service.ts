@@ -65,7 +65,7 @@ const fullInclude = {
   _count: { select: { attempts: true, invitations: true } },
 };
 
-/** What a candidate may see: no correct answers, only non-hidden sample test cases. */
+
 const candidateInclude = {
   company: { select: { id: true, name: true } },
   questions: {
