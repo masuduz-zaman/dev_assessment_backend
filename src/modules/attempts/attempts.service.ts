@@ -6,7 +6,7 @@ import { notificationsService } from "../notifications/notifications.service";
 import { rankingsService } from "../rankings/rankings.service";
 import type { SubmitAttemptInput } from "./attempts.validation";
 
-/** Browsers auto-submit at 0:00, so allow a little network/clock slack before rejecting a submission. */
+
 const SUBMIT_GRACE_MS = 60_000;
 
 const sameSet = (a: string[], b: string[]) =>
@@ -167,7 +167,6 @@ export const attemptsService = {
             executionResult = { passedWeight, totalWeight };
             autoGraded = true;
           } catch {
-            // Execution service unavailable: keep the code and send it to a human evaluator instead of failing the exam.
             executionResult = {
               error:
                 "Automatic execution was unavailable. Awaiting manual review.",
@@ -175,7 +174,7 @@ export const attemptsService = {
             needsManualReview = true;
           }
         } else {
-          autoGraded = true; // nothing to run (blank answer) scores zero
+          autoGraded = true;
         }
       }
 
@@ -212,7 +211,7 @@ export const attemptsService = {
         ? "PASSED"
         : "FAILED";
 
-    // One atomic transaction: every answer, the result row and the attempt status change together.
+
     const outcomes = await prisma.$transaction([
       ...writes,
       prisma.assessmentResult.create({
