@@ -11,7 +11,7 @@ interface AuditInput {
 }
 
 export const auditService = {
-  /** Audit logging must never break the main request, so failures are swallowed. */
+
   async log(input: AuditInput) {
     try {
       await prisma.auditLog.create({ data: input });
