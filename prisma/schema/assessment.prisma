@@ -1,0 +1,29 @@
+model Assessment {
+  id               String               @id @default(cuid())
+  title            String
+  description      String?
+  visibility       AssessmentVisibility @default(PRIVATE)
+  status           AssessmentStatus     @default(DRAFT)
+  durationMinutes  Int
+  maxAttempts      Int                  @default(1)
+  totalMarks       Float                @default(0)
+  passMarks        Float                @default(0)
+  negativeMarking  Float                @default(0)
+  shuffleQuestions Boolean              @default(false)
+  startsAt         DateTime?
+  endsAt           DateTime?
+  companyId        String?
+  createdById      String
+  createdAt        DateTime             @default(now())
+  updatedAt        DateTime             @updatedAt
+
+  company     Company?               @relation(fields: [companyId], references: [id], onDelete: SetNull)
+  createdBy   User                   @relation(fields: [createdById], references: [id])
+  questions   Question[]
+  invitations AssessmentInvitation[]
+  attempts    AssessmentAttempt[]
+  results     AssessmentResult[]
+
+  @@index([visibility, status])
+  @@index([companyId, status])
+}
