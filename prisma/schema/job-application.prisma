@@ -1,0 +1,14 @@
+model JobApplication {
+  id          String            @id @default(cuid())
+  jobId       String
+  candidateId String
+  cvUrl       String?
+  coverLetter String?
+  status      ApplicationStatus @default(APPLIED)
+  createdAt   DateTime          @default(now())
+
+  job       JobPosition @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  candidate User        @relation(fields: [candidateId], references: [id], onDelete: Cascade)
+
+  @@unique([jobId, candidateId])
+}
