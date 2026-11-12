@@ -19,11 +19,11 @@ export function createApp() {
   app.use(cors({ origin: env.corsOrigins, credentials: true }));
 
   // Provider callbacks need raw / urlencoded bodies, so they are mounted before express.json().
-  app.use("/api/payments", paymentWebhookRoutes);
+  app.use("/api/v1/payments", paymentWebhookRoutes);
 
   app.use(express.json({ limit: "1mb" }));
   app.use("/api", apiLimiter);
-  app.use("/api", routes);
+  app.use("/api/v1", routes);
 
   app.use(notFoundHandler);
   app.use(errorHandler);
