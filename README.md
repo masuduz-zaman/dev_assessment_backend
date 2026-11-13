@@ -1,4 +1,5 @@
 # DevAssess API
+API_URL/api/v1/endpoint
 
 Express + Prisma + PostgreSQL
 
@@ -68,6 +69,5 @@ Full request bodies, chained variables and tests are in the Postman collection.
 3. Provider -> backend: Stripe webhook (signature verified) / SSLCommerz IPN and success redirect (re-validated against the SSLCommerz validation API; amount, currency and tran_id must match).
 4. The frontend success page calls `POST /payments/:id/verify`, which asks the gateway directly. All paths funnel into one idempotent `markPaid()`.
 
-SSLCommerz callbacks and the Stripe webhook need a **public URL** (use ngrok / cloudflared locally and set `API_URL`). The `verify` endpoint lets local development work without webhooks.
-# dev_assessment_backend
-# dev_assessment_backend
+Stripe webhook need a **public URL** (use ngrok / cloudflared locally and set `API_URL`). The `verify` endpoint lets local development work without webhooks.
+
