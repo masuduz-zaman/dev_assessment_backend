@@ -2,7 +2,7 @@ import type { Role, User } from "@prisma/client";
 import { env } from "../../config/env";
 import { googleClient } from "../../config/google";
 import { prisma } from "../../config/prisma";
-import { ApiError } from "../../shared/errors/apiError";
+import { ApiError } from "../../shared/errors/apiError.js";
 import { comparePassword, hashPassword } from "../../shared/utils/password";
 import { createSlug } from "../../shared/utils/slug";
 import { signAccessToken } from "../../shared/utils/token";
@@ -107,7 +107,6 @@ export const authService = {
     return issueSession(user);
   },
 
-
   async loginWithGoogle(input: GoogleLoginInput) {
     if (!googleClient || !env.GOOGLE_CLIENT_ID)
       throw ApiError.unavailable(
@@ -210,7 +209,6 @@ export const authService = {
     if (!user) throw ApiError.notFound("User not found");
     return user;
   },
-
 
   googleConfig() {
     return {

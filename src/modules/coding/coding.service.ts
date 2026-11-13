@@ -1,6 +1,6 @@
 import axios from "axios";
 import { env } from "../../config/env";
-import { ApiError } from "../../shared/errors/apiError";
+import { ApiError } from "../../shared/errors/apiError.js";
 import type { ExecuteCodeInput } from "./coding.validation";
 
 export interface ExecutionOutput {
@@ -13,7 +13,6 @@ export interface ExecutionOutput {
 }
 
 export const isCodingConfigured = () => Boolean(env.JUDGE0_BASE_URL);
-
 
 export const codingService = {
   async execute(input: ExecuteCodeInput): Promise<ExecutionOutput> {

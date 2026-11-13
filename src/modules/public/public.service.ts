@@ -1,6 +1,6 @@
 import type { Prisma } from "@prisma/client";
 import { prisma } from "../../config/prisma";
-import { ApiError } from "../../shared/errors/apiError";
+import { ApiError } from "../../shared/errors/apiError.js";
 import {
   CODING_LANGUAGES,
   EMPLOYMENT_TYPES,

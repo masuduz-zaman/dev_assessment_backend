@@ -1,11 +1,10 @@
 import type { Prisma } from "@prisma/client";
 import { prisma } from "../../config/prisma";
-import { ApiError } from "../../shared/errors/apiError";
+import { ApiError } from "../../shared/errors/apiError.js";
 import { codingService } from "../coding/coding.service";
 import { notificationsService } from "../notifications/notifications.service";
 import { rankingsService } from "../rankings/rankings.service";
 import type { SubmitAttemptInput } from "./attempts.validation";
-
 
 const SUBMIT_GRACE_MS = 60_000;
 
@@ -209,7 +208,6 @@ export const attemptsService = {
       : autoScore >= assessment.passMarks
         ? "PASSED"
         : "FAILED";
-
 
     const outcomes = await prisma.$transaction([
       ...writes,

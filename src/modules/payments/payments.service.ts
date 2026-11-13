@@ -1,6 +1,6 @@
 import { prisma } from "../../config/prisma";
 import { env } from "../../config/env";
-import { ApiError } from "../../shared/errors/apiError";
+import { ApiError } from "../../shared/errors/apiError.js";
 import { type Actor } from "../../shared/utils/actor";
 import { auditService } from "../audit/audit.service";
 import { notificationsService } from "../notifications/notifications.service";

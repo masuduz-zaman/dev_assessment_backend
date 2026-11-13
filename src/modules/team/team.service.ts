@@ -1,5 +1,5 @@
 import { prisma } from "../../config/prisma";
-import { ApiError } from "../../shared/errors/apiError";
+import { ApiError } from "../../shared/errors/apiError.js";
 import { hashPassword } from "../../shared/utils/password";
 import { notificationsService } from "../notifications/notifications.service";
 import type { AddMemberInput, UpdateMemberInput } from "./team.validation";

@@ -1,5 +1,5 @@
 import { prisma } from "../../config/prisma";
-import { ApiError } from "../../shared/errors/apiError";
+import { ApiError } from "../../shared/errors/apiError.js";
 import { ROLES } from "../../constants/roles";
 import { authService } from "../auth/auth.service";
 import type { UpdateProfileInput } from "./profile.validation";

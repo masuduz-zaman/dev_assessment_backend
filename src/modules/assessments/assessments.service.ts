@@ -1,7 +1,7 @@
 import type { Prisma } from "@prisma/client";
 import { DEFAULT_PASS_PERCENTAGE } from "../../constants/options";
 import { prisma } from "../../config/prisma";
-import { ApiError } from "../../shared/errors/apiError";
+import { ApiError } from "../../shared/errors/apiError.js";
 import { type Actor, isAdmin } from "../../shared/utils/actor";
 import type {
   AssessmentListQuery,
@@ -64,7 +64,6 @@ const fullInclude = {
   },
   _count: { select: { attempts: true, invitations: true } },
 };
-
 
 const candidateInclude = {
   company: { select: { id: true, name: true } },

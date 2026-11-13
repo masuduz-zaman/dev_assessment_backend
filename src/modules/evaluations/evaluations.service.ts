@@ -1,5 +1,5 @@
 import { prisma } from "../../config/prisma";
-import { ApiError } from "../../shared/errors/apiError";
+import { ApiError } from "../../shared/errors/apiError.js";
 import { type Actor, isAdmin } from "../../shared/utils/actor";
 import { notificationsService } from "../notifications/notifications.service";
 import { rankingsService } from "../rankings/rankings.service";
@@ -9,7 +9,6 @@ const companyFilter = (actor: Actor) =>
   isAdmin(actor) ? {} : { companyId: actor.companyId ?? "__none__" };
 
 export const evaluationsService = {
-
   pending(actor: Actor) {
     return prisma.submission.findMany({
       where: {

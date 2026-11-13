@@ -1,6 +1,6 @@
 import type { Request, Response } from "express";
 import { env } from "../../config/env";
-import { ApiError } from "../../shared/errors/apiError";
+import { ApiError } from "../../shared/errors/apiError.js";
 import { actorFrom } from "../../shared/utils/actor";
 import { asyncHandler } from "../../shared/utils/asyncHandler";
 import { sendCreated, sendSuccess } from "../../shared/utils/apiResponse";
