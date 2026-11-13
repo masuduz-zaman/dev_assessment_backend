@@ -1,7 +1,7 @@
 import Stripe from "stripe";
 import type { Payment } from "@prisma/client";
 import { env } from "../../../config/env";
-import { ApiError } from "../../../shared/errors/apiError";
+import { ApiError } from "../../../shared/errors/ApiError";
 import type {
   CheckoutInput,
   CheckoutSession,
