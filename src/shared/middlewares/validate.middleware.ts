@@ -1,6 +1,6 @@
 import type { RequestHandler } from "express";
 import type { ZodTypeAny } from "zod";
-import { ApiError, type FieldError } from "../errors/apiError";
+import { ApiError, type FieldError } from "../errors/ApiError";
 import { zodToFieldErrors } from "../utils/zod";
 
 interface ValidationSchemas {

@@ -1,6 +1,6 @@
 import type { Request } from "express";
 import type { Role } from "@prisma/client";
-import { ApiError } from "../errors/apiError";
+import { ApiError } from "../errors/ApiError";
 
 /** The signed in user plus their company context, passed from controllers into services. */
 export interface Actor {

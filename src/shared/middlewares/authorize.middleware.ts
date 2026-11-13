@@ -1,8 +1,7 @@
 import type { RequestHandler } from "express";
 import type { Role } from "@prisma/client";
-import { ApiError } from "../errors/apiError";
+import { ApiError } from "../errors/ApiError";
 
-/** Role based access control: allowRoles('SUPER_ADMIN') */
 export const allowRoles =
   (...roles: Role[]): RequestHandler =>
   (req, _res, next) => {
@@ -12,7 +11,6 @@ export const allowRoles =
     next();
   };
 
-/** Company scoped permission check. Super admins always pass, company owners hold the '*' wildcard. */
 export const requirePermission =
   (permission: string): RequestHandler =>
   (req, _res, next) => {
@@ -25,7 +23,6 @@ export const requirePermission =
     next(ApiError.forbidden(`Missing permission: ${permission}`));
   };
 
-/** Returns the company id of the signed in company user or throws. */
 export function requireCompanyId(companyId?: string): string {
   if (!companyId)
     throw ApiError.forbidden("Company context is required for this action");

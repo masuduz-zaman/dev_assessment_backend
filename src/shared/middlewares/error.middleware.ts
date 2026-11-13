@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken";
 import multer from "multer";
 import { ZodError } from "zod";
 import { env } from "../../config/env";
-import { ApiError } from "../errors/apiError";
+import { ApiError } from "../errors/ApiError";
 import { sendError } from "../utils/apiResponse";
 import { zodToFieldErrors } from "../utils/zod";
 

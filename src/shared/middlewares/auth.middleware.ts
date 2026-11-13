@@ -1,6 +1,6 @@
 import type { RequestHandler } from "express";
 import { prisma } from "../../config/prisma";
-import { ApiError } from "../errors/apiError";
+import { ApiError } from "../errors/ApiError";
 import { asyncHandler } from "../utils/asyncHandler";
 import { verifyAccessToken } from "../utils/token";
 

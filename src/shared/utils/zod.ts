@@ -1,5 +1,5 @@
 import type { ZodError } from "zod";
-import type { FieldError } from "../errors/apiError";
+import type { FieldError } from "../errors/ApiError";
 
 /** Flatten Zod issues into [{ field: 'questions.0.prompt', message }] */
 export function zodToFieldErrors(
