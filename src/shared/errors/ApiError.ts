@@ -3,7 +3,7 @@ export interface FieldError {
   message: string;
 }
 
-/** Every expected failure in the app is thrown as an ApiError and rendered by the global error handler. */
+
 export class ApiError extends Error {
   constructor(
     public readonly statusCode: number,

@@ -1,6 +1,6 @@
 import axios from "axios";
 import { env } from "../../config/env";
-import { ApiError } from "../../shared/errors/apiError.js";
+import { ApiError } from "../../shared/errors/ApiError";
 import type { ExecuteCodeInput } from "./coding.validation";
 
 export interface ExecutionOutput {

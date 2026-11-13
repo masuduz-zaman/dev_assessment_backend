@@ -1,5 +1,5 @@
 import { prisma } from "../../config/prisma";
-import { ApiError } from "../../shared/errors/apiError.js";
+import { ApiError } from "../../shared/errors/ApiError";
 
 export const notificationsService = {
   /** Used by other modules to push an in-app notification to a user. */

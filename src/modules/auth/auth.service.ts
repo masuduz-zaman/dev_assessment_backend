@@ -2,7 +2,7 @@ import type { Role, User } from "@prisma/client";
 import { env } from "../../config/env";
 import { googleClient } from "../../config/google";
 import { prisma } from "../../config/prisma";
-import { ApiError } from "../../shared/errors/apiError.js";
+import { ApiError } from "../../shared/errors/ApiError";
 import { comparePassword, hashPassword } from "../../shared/utils/password";
 import { createSlug } from "../../shared/utils/slug";
 import { signAccessToken } from "../../shared/utils/token";

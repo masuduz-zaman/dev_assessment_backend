@@ -1,5 +1,5 @@
 import { prisma } from "../../config/prisma";
-import { ApiError } from "../../shared/errors/apiError.js";
+import { ApiError } from "../../shared/errors/ApiError";
 import { type Actor, isAdmin } from "../../shared/utils/actor";
 import { notificationsService } from "../notifications/notifications.service";
 import { rankingsService } from "../rankings/rankings.service";

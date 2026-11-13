@@ -1,5 +1,5 @@
 import { prisma } from "../../config/prisma";
-import { ApiError } from "../../shared/errors/apiError.js";
+import { ApiError } from "../../shared/errors/ApiError";
 import type { CreatePlanInput, UpdatePlanInput } from "./plans.validation";
 
 export const plansService = {

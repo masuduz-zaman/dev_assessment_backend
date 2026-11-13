@@ -1,5 +1,5 @@
 import { prisma } from "../../config/prisma";
-import { ApiError } from "../../shared/errors/apiError.js";
+import { ApiError } from "../../shared/errors/ApiError";
 import type { CreateJobInput, UpdateJobInput } from "./jobs.validation";
 
 async function findOwned(companyId: string, id: string) {
