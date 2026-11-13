@@ -22,7 +22,7 @@ export function createApp() {
   app.use("/api/v1/payments", paymentWebhookRoutes);
 
   app.use(express.json({ limit: "1mb" }));
-  app.use("/api", apiLimiter);
+  app.use("/api/v1", apiLimiter);
   app.use("/api/v1", routes);
 
   app.use(notFoundHandler);
