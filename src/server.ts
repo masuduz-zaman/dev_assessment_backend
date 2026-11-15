@@ -3,7 +3,7 @@ import { env } from './config/env';
 import { prisma } from './config/prisma';
 
 const app = createApp();
-const server = app.listen(env.PORT, () => console.log(`API listening on http://localhost:${env.PORT}`));
+const server = app.listen(env.frontendUrl, () => console.log(`API listening on http://localhost:${env.PORT}`));
 
 async function shutdown() {
   server.close();
