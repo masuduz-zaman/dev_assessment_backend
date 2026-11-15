@@ -15,10 +15,10 @@ export function createApp() {
 
   if (env.isProduction) app.set("trust proxy", 1);
 
-  app.use(helmet({ crossOriginResourcePolicy: { policy: "cross-origin" } })); // uploads are embedded by the frontend origin
+  app.use(helmet({ crossOriginResourcePolicy: { policy: "cross-origin" } })); 
   app.use(cors({ origin: env.corsOrigins, credentials: true }));
 
-  // Provider callbacks need raw / urlencoded bodies, so they are mounted before express.json().
+
   app.use("/api/v1/payments", paymentWebhookRoutes);
 
   app.use(express.json({ limit: "1mb" }));
