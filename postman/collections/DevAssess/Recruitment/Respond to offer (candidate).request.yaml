@@ -1,0 +1,12 @@
+$kind: http-request
+url: http://localhost:5000/api/v1/offers/{{offerId}}/respond
+method: PATCH
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "status": "ACCEPTED"
+    }
+order: 12000

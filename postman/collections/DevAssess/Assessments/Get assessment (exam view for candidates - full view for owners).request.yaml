@@ -1,0 +1,5 @@
+$kind: http-request
+name: Get assessment (exam view for candidates / full view for owners)
+url: "{{baseUrl}}/assessments/{{assessmentId}}"
+method: GET
+order: 3000

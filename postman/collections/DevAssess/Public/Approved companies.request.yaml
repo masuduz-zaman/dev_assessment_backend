@@ -1,0 +1,6 @@
+$kind: http-request
+url: "{{baseUrl}}/public/companies"
+method: GET
+auth:
+  type: noauth
+order: 5000

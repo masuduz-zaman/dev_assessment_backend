@@ -1,0 +1,4 @@
+$kind: http-request
+url: "{{baseUrl}}/company/members/{{memberId}}"
+method: DELETE
+order: 4000

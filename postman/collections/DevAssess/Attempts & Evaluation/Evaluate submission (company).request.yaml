@@ -1,0 +1,13 @@
+$kind: http-request
+url: "{{baseUrl}}/evaluations/{{submissionId}}"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "marksAwarded": 8,
+      "feedback": "Good explanation"
+    }
+order: 5000

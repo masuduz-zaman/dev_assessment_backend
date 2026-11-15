@@ -1,0 +1,16 @@
+$kind: http-request
+description: Send the credential (ID token) returned by Google Identity Services. The server verifies it against GOOGLE_CLIENT_ID. role/companyName only apply when the account is created.
+url: "{{baseUrl}}/auth/google"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "idToken": "<Google ID token from Google Identity Services>",
+      "role": "CANDIDATE"
+    }
+auth:
+  type: noauth
+order: 4000

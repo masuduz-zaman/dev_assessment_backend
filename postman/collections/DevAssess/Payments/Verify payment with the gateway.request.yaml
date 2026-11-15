@@ -1,0 +1,5 @@
+$kind: http-request
+description: Server-to-server check with Stripe / SSLCommerz. Safe to call repeatedly.
+url: "{{baseUrl}}/payments/{{paymentId}}/verify"
+method: POST
+order: 4000

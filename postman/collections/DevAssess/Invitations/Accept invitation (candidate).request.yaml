@@ -1,0 +1,4 @@
+$kind: http-request
+url: "{{baseUrl}}/invitations/{{invitationId}}/accept"
+method: POST
+order: 4000

@@ -1,0 +1,6 @@
+$kind: http-request
+url: http://localhost:5000/api/v1/public/stats
+method: GET
+auth:
+  type: noauth
+order: 1000

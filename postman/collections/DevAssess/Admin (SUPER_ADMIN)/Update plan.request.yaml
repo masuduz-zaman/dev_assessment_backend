@@ -1,0 +1,13 @@
+$kind: http-request
+url: "{{baseUrl}}/plans/{{planId}}"
+method: PATCH
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "active": true,
+      "sortOrder": 2
+    }
+order: 10000

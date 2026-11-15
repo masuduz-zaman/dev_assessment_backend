@@ -1,0 +1,13 @@
+$kind: http-request
+url: "{{baseUrl}}/applications"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "jobId": "{{jobId}}",
+      "coverLetter": "I would love to join your team."
+    }
+order: 5000

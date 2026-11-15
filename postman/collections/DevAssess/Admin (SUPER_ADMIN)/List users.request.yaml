@@ -1,0 +1,10 @@
+$kind: http-request
+url: "{{baseUrl}}/admin/users?role=CANDIDATE"
+method: GET
+queryParams:
+  role: CANDIDATE
+scripts:
+  - type: afterResponse
+    code: const body = pm.response.json(); if (body.success && body.data[0] && body.data[0].id) { pm.collectionVariables.set('userId', body.data[0] && body.data[0].id); }
+    language: text/javascript
+order: 3000

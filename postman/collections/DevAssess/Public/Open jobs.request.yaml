@@ -1,0 +1,9 @@
+$kind: http-request
+url: "{{baseUrl}}/public/jobs?search=&type=Full-time"
+method: GET
+queryParams:
+  search: ""
+  type: Full-time
+auth:
+  type: noauth
+order: 6000

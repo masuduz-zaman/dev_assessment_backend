@@ -1,0 +1,13 @@
+$kind: http-request
+name: Approve / reject / suspend company
+url: "{{baseUrl}}/admin/companies/{{companyId}}/status"
+method: PATCH
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "status": "APPROVED"
+    }
+order: 2000

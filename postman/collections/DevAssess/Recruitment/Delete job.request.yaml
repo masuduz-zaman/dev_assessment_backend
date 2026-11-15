@@ -1,0 +1,4 @@
+$kind: http-request
+url: "{{baseUrl}}/jobs/{{jobId}}"
+method: DELETE
+order: 4000

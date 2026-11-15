@@ -1,0 +1,18 @@
+$kind: http-request
+url: "{{baseUrl}}/company/members"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": "Rafi Evaluator",
+      "email": "rafi.evaluator@example.com",
+      "password": "Passw0rdSecure",
+      "memberRole": "EVALUATOR",
+      "permissions": [
+        "assessment:evaluate"
+      ]
+    }
+order: 2000

@@ -1,0 +1,15 @@
+$kind: http-request
+url: "{{baseUrl}}/invitations"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "assessmentId": "{{assessmentId}}",
+      "candidateIds": [
+        "{{userId}}"
+      ]
+    }
+order: 1000

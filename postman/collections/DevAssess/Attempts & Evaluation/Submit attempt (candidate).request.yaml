@@ -1,0 +1,23 @@
+$kind: http-request
+url: "{{baseUrl}}/attempts/{{attemptId}}/submit"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "answers": [
+        {
+          "questionId": "<question id>",
+          "selectedOptionIds": [
+            "<option id>"
+          ]
+        },
+        {
+          "questionId": "<written question id>",
+          "answerText": "Authentication proves who you are; authorization decides what you can do."
+        }
+      ]
+    }
+order: 2000

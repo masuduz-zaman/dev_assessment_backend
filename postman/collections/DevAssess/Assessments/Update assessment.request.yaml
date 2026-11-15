@@ -1,0 +1,13 @@
+$kind: http-request
+url: "{{baseUrl}}/assessments/{{assessmentId}}"
+method: PATCH
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "title": "Backend Fundamentals v2",
+      "durationMinutes": 60
+    }
+order: 4000

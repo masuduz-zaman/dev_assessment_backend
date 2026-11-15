@@ -1,0 +1,13 @@
+$kind: http-request
+name: Suspend / activate user
+url: "{{baseUrl}}/admin/users/{{userId}}/status"
+method: PATCH
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "status": "SUSPENDED"
+    }
+order: 4000

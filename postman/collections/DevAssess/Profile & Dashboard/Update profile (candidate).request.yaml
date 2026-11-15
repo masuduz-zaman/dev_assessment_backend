@@ -1,0 +1,20 @@
+$kind: http-request
+url: "{{baseUrl}}/profile"
+method: PATCH
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": "Demo Candidate",
+      "headline": "Full-stack developer",
+      "location": "Dhaka",
+      "skills": [
+        "TypeScript",
+        "Node.js",
+        "React"
+      ],
+      "portfolioUrl": "https://example.com"
+    }
+order: 2000

@@ -1,0 +1,20 @@
+$kind: http-request
+url: "{{baseUrl}}/plans"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "code": "team-plus",
+      "name": "Team Plus",
+      "description": "Custom plan",
+      "amount": 99900,
+      "currency": "BDT",
+      "features": [
+        "Feature A",
+        "Feature B"
+      ]
+    }
+order: 9000

@@ -1,0 +1,10 @@
+$kind: http-request
+url: http://localhost:5000/api/v1/admin/companies?status=PENDING
+method: GET
+queryParams:
+  status: PENDING
+scripts:
+  - type: afterResponse
+    code: const body = pm.response.json(); if (body.success && body.data[0] && body.data[0].id) { pm.collectionVariables.set('companyId', body.data[0] && body.data[0].id); }
+    language: text/javascript
+order: 1000

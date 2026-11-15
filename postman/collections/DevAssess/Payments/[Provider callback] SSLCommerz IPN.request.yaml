@@ -1,0 +1,7 @@
+$kind: http-request
+description: Called by SSLCommerz. Re-validated against the gateway validation API.
+url: "{{baseUrl}}/payments/sslcommerz/ipn"
+method: POST
+auth:
+  type: noauth
+order: 6000

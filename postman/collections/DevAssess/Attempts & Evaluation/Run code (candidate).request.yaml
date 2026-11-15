@@ -1,0 +1,15 @@
+$kind: http-request
+description: Returns 503 with the standard error envelope when JUDGE0_BASE_URL is not configured.
+url: "{{baseUrl}}/coding/execute"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "source_code": "print(sum(map(int, input().split())))",
+      "language_id": 71,
+      "stdin": "1 2"
+    }
+order: 3000

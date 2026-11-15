@@ -1,0 +1,14 @@
+$kind: http-request
+url: "{{baseUrl}}/profile"
+method: PATCH
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "companyName": "Demo Technology Ltd.",
+      "description": "We build developer tools.",
+      "website": "https://example.com"
+    }
+order: 3000

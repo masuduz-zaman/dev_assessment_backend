@@ -1,0 +1,8 @@
+$kind: http-request
+url: "{{baseUrl}}/rankings?scope=public"
+method: GET
+queryParams:
+  scope: public
+auth:
+  type: noauth
+order: 8000

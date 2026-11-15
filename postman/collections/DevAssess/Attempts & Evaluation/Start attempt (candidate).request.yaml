@@ -1,0 +1,16 @@
+$kind: http-request
+url: "{{baseUrl}}/attempts"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "assessmentId": "{{assessmentId}}"
+    }
+scripts:
+  - type: afterResponse
+    code: const body = pm.response.json(); if (body.success && body.data.id) { pm.collectionVariables.set('attemptId', body.data.id); }
+    language: text/javascript
+order: 1000

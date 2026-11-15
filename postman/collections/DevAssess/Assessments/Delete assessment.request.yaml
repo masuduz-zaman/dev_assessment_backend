@@ -1,0 +1,4 @@
+$kind: http-request
+url: "{{baseUrl}}/assessments/{{assessmentId}}"
+method: DELETE
+order: 7000

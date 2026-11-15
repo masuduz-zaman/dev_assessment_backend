@@ -1,0 +1,69 @@
+$kind: http-request
+description: totalMarks is computed on the server. passMarks defaults to 40%.
+url: "{{baseUrl}}/assessments"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "title": "Backend Fundamentals",
+      "description": "MCQ, written and coding questions",
+      "visibility": "PUBLIC",
+      "durationMinutes": 45,
+      "maxAttempts": 2,
+      "questions": [
+        {
+          "type": "MCQ",
+          "prompt": "Which HTTP status code means Created?",
+          "marks": 5,
+          "options": [
+            {
+              "text": "201",
+              "isCorrect": true
+            },
+            {
+              "text": "200",
+              "isCorrect": false
+            },
+            {
+              "text": "404",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "type": "WRITTEN",
+          "prompt": "Explain the difference between authentication and authorization.",
+          "marks": 10
+        },
+        {
+          "type": "CODING",
+          "prompt": "Read two integers and print their sum.",
+          "marks": 10,
+          "languageIds": [
+            71,
+            63
+          ],
+          "starterCode": "",
+          "testCases": [
+            {
+              "input": "1 2",
+              "expectedOutput": "3",
+              "isHidden": false
+            },
+            {
+              "input": "10 5",
+              "expectedOutput": "15",
+              "isHidden": true
+            }
+          ]
+        }
+      ]
+    }
+scripts:
+  - type: afterResponse
+    code: const body = pm.response.json(); if (body.success && body.data.id) { pm.collectionVariables.set('assessmentId', body.data.id); }
+    language: text/javascript
+order: 2000

@@ -1,0 +1,4 @@
+$kind: http-request
+url: "{{baseUrl}}/assessments/{{assessmentId}}/publish"
+method: PATCH
+order: 5000

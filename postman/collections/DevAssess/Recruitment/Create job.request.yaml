@@ -1,0 +1,20 @@
+$kind: http-request
+url: http://localhost:5000/api/v1/jobs
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "title": "Backend Engineer",
+      "description": "Build APIs with Node.js and PostgreSQL.",
+      "location": "Dhaka",
+      "employmentType": "Full-time",
+      "status": "OPEN"
+    }
+scripts:
+  - type: afterResponse
+    code: const body = pm.response.json(); if (body.success && body.data.id) { pm.collectionVariables.set('jobId', body.data.id); }
+    language: text/javascript
+order: 2000

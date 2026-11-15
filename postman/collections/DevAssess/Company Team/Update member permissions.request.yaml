@@ -1,0 +1,16 @@
+$kind: http-request
+url: "{{baseUrl}}/company/members/{{memberId}}"
+method: PATCH
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "permissions": [
+        "assessment:evaluate",
+        "assessment:invite"
+      ],
+      "active": true
+    }
+order: 3000

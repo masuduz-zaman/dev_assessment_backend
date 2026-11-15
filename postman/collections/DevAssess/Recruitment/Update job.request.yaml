@@ -1,0 +1,12 @@
+$kind: http-request
+url: "{{baseUrl}}/jobs/{{jobId}}"
+method: PATCH
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "status": "CLOSED"
+    }
+order: 3000

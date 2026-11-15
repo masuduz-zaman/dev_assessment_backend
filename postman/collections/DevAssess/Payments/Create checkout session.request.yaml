@@ -1,0 +1,17 @@
+$kind: http-request
+description: Creates a real Stripe Checkout session or SSLCommerz session (per PAYMENT_PROVIDER). Open data.checkoutUrl in a browser to pay with the provider sandbox/test card.
+url: http://localhost:5000/api/v1/payments/checkout
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "planId": "{{planId}}"
+    }
+scripts:
+  - type: afterResponse
+    code: const body = pm.response.json(); if (body.success && body.data.paymentId) { pm.collectionVariables.set('paymentId', body.data.paymentId); }
+    language: text/javascript
+order: 1000

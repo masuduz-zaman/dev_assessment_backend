@@ -1,0 +1,39 @@
+$kind: collection
+description: Run the demo logins in folder 1 first (they store tokens). Every endpoint returns { success, message, data } on success and { success:false, message, errors:[] } on failure. Default auth is Bearer {{token}}.
+variables:
+  baseUrl: http://localhost:5000/api
+  token: ""
+  adminToken: ""
+  companyToken: ""
+  candidateToken: ""
+  assessmentId: ""
+  attemptId: ""
+  submissionId: ""
+  companyId: ""
+  userId: ""
+  memberId: ""
+  invitationId: ""
+  jobId: ""
+  applicationId: ""
+  offerId: ""
+  planId: ""
+  paymentId: ""
+  notificationId: ""
+scripts:
+  - type: http:afterResponse
+    code: |-
+      pm.test('Response follows the standard envelope', function () {
+        if (pm.response.headers.get("Content-Type") && pm.response.headers.get("Content-Type").includes("json")) {
+          const body = pm.response.json();
+          pm.expect(body).to.have.property('success');
+          pm.expect(body).to.have.property('message');
+          if (body.success) pm.expect(body).to.have.property('data'); else pm.expect(body.errors).to.be.an('array');
+        }
+      });
+    language: text/javascript
+auth:
+  - id: be98fe11-feb8-48cc-a44d-68d9ba461eb9
+    type: bearer
+    name: bearer auth
+    credentials:
+      token: "{{token}}"

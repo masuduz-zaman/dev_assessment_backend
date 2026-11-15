@@ -1,0 +1,14 @@
+$kind: http-request
+url: "{{baseUrl}}/offers"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "candidateId": "{{userId}}",
+      "jobTitle": "Backend Engineer",
+      "message": "We would love to have you on board."
+    }
+order: 9000

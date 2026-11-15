@@ -1,0 +1,7 @@
+$kind: http-request
+description: Called by Stripe. Requires the Stripe-Signature header; not callable manually.
+url: "{{baseUrl}}/payments/stripe/webhook"
+method: POST
+auth:
+  type: noauth
+order: 5000
